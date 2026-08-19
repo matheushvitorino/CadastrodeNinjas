@@ -1,4 +1,5 @@
 package dev.java10x.CadastroDeNinjas.Ninjas;
+import dev.java10x.CadastroDeNinjas.Missoes.MissoesModel;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -8,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table("tb_cadastro")
+@Table(name ="tb_cadastro")
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
@@ -24,7 +25,7 @@ public class NinjaModel {
 
     @ManyToOne
     @JoinColumn(name = "missoes_id")
-    private List missoes = new ArrayList();
+    private MissoesModel missoes;
 
     @Override
     public String toString() {
