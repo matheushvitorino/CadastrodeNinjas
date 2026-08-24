@@ -11,11 +11,15 @@ public class NinjaController {
          return "Essda é minha primeir amensagem nessa rota";
     }
 
-    @GetMappin("/todos")
+    @GetMapping("/todos")
     public String mostrarTodosNinja(){
         return "Todos";
     }
 
+    @PostMapping("/criar")
+    public String criarMissao(){
+        return "Criando";
+    }
 
     @PutMapping("/alteraID")
         public String alterarNinjaporID() {
@@ -27,5 +31,4 @@ public class NinjaController {
         return "Deletar ninja por id";
     }
 
-    @ReadMapping
 }
