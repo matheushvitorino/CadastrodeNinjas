@@ -1,10 +1,15 @@
 package dev.java10x.CadastroDeNinjas.Ninjas;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
-@RequestMapping
+@RequestMapping("/ninjas")
 public class NinjaController {
+    @Autowired
+    private NinjaService ninjaService;
 
     @GetMapping("/boasvindas")
     public String boasVindas (){
@@ -12,8 +17,8 @@ public class NinjaController {
     }
 
     @GetMapping("/todos")
-    public String mostrarTodosNinja(){
-        return "Todos";
+    public List<NinjaModel> mostrarTodosNinja(){
+        return ninjaService.listarNinjas();
     }
 
     @PostMapping("/criar")
